@@ -1,0 +1,16 @@
+---
+title: "Tensors"
+format: html
+editor: visual
+---
+
+<https://skeydan.github.io/Deep-Learning-and-Scientific-Computing-with-R-torch/tensors.html>
+
+```{r}
+library(torch)
+```
+
+```{r}
+t1 <- torch_tensor(1)
+t1
+```
