@@ -10,7 +10,71 @@ editor: visual
 library(torch)
 ```
 
+# 1 What's in a tensor?
+
 ```{r}
 t1 <- torch_tensor(1)
 t1
+```
+
+```{r}
+t1$dtype
+```
+
+```{r}
+t1$device
+```
+
+```{r}
+t1$shape
+```
+
+```{r}
+t2 <- t1$to(dtype = torch_int())
+t2$dtype
+```
+
+```{r}
+# only applicable if you have a GPU
+# t2 <- t1$to(device = "cuda")
+# t2$device
+```
+
+```{r}
+t3 <- t1$view(c(1, 1))
+t1$shape
+t3$shape
+```
+
+```{r}
+c(1)
+matrix(1)
+```
+
+# 2 Creating tensors
+
+## 2.1 Tensors from values
+
+```{r}
+torch_tensor(1:5)
+```
+
+```{r}
+torch_tensor(1:5, dtype = torch_float())
+```
+
+```{r}
+# torch_tensor(1:5, device = "cuda")
+```
+
+```{r}
+torch_tensor(matrix(1:9, ncol = 3))
+```
+
+```{r}
+torch_tensor(matrix(1:9, ncol = 3, byrow = TRUE))
+```
+
+```{r}
+torch_tensor(array(1:24, dim = c(4, 3, 2)))
 ```
